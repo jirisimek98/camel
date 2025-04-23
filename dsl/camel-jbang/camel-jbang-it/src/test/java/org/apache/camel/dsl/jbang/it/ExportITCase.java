@@ -136,7 +136,7 @@ public class ExportITCase extends JBangTestSupport {
         assertFileInDataFolderExists("mvnw");
         assertFileInDataFolderExists("mvnw.cmd");
         assertFileInDataFolderExists("pom.xml");
-        assertFileInDataFolderContains("pom.xml", String.format("<groupId>%s</groupId>", quarkusGid));
+        assertFileInDataFolderContains("pom.xml", String.format("<quarkus.platform.group-id>%s</quarkus.platform.group-id>", quarkusGid));
         assertFileInDataFolderContains("pom.xml", String.format("<quarkus.platform.version>%s</quarkus.platform.version>", quarkusVersion));
     }
 }
