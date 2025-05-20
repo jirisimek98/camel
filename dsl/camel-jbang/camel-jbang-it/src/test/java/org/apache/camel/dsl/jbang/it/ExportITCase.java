@@ -125,14 +125,14 @@ public class ExportITCase extends JBangTestSupport {
     public void testExportWithCustomQuarkusBuild() throws IOException {
         String quarkusGid = System.getProperty("quarkusGroupId");
         String quarkusVersion = System.getProperty("quarkusVersion");
-        String repos = System.getProperty("quarkusRepos");
+        //String repos = System.getProperty("quarkusRepos");
 
-        Assumptions.assumeTrue(quarkusGid != null && quarkusVersion != null && repos != null, 
+        Assumptions.assumeTrue(quarkusGid != null && quarkusVersion != null, 
                 "Skipping test, custom Quarkus properties not set");
 
         execute(String.format(
-                "export --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT --quarkus-group-id=%s --quarkus-version=%s --dep=org.apache.camel.quarkus:camel-quarkus-timer,org.apache.camel.quarkus:camel-quarkus-management,org.apache.camel.quarkus:camel-quarkus-cli-connector --repos=%s --directory=%s",
-                quarkusGid, quarkusVersion, repos, mountPoint()));
+                "export --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT --quarkus-group-id=%s --quarkus-version=%s --dep=org.apache.camel.quarkus:camel-quarkus-timer,org.apache.camel.quarkus:camel-quarkus-management,org.apache.camel.quarkus:camel-quarkus-cli-connector",
+                quarkusGid, quarkusVersion, mountPoint()));
         assertFileInDataFolderExists("mvnw");
         assertFileInDataFolderExists("mvnw.cmd");
         assertFileInDataFolderExists("pom.xml");
