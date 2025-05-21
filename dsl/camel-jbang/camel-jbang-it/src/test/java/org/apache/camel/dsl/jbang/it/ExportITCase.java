@@ -131,7 +131,7 @@ public class ExportITCase extends JBangTestSupport {
                 "Skipping test, custom Quarkus properties not set");
 
         execute(String.format(
-                "export --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT --quarkus-group-id=%s --quarkus-version=%s --dep=org.apache.camel.quarkus:camel-quarkus-timer,org.apache.camel.quarkus:camel-quarkus-management,org.apache.camel.quarkus:camel-quarkus-cli-connector",
+                "export --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT --quarkus-group-id=%s --quarkus-version=%s --dep=org.apache.camel.quarkus:camel-quarkus-timer,org.apache.camel.quarkus:camel-quarkus-management,org.apache.camel.quarkus:camel-quarkus-cli-connector --directory=%s",
                 quarkusGid, quarkusVersion, mountPoint()));
         assertFileInDataFolderExists("mvnw");
         assertFileInDataFolderExists("mvnw.cmd");
